@@ -16,4 +16,6 @@ public interface VehicleLogDao {
 
 	public VehicleLog getVehicleLog(long vehicleLogId) throws VehicleLogDaoException;
 
+	public VehicleLog updateVehicleLog(VehicleLog vehicleLog) throws VehicleLogDaoException;
+
 }

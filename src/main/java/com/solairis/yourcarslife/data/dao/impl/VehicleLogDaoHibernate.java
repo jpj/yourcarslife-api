@@ -28,6 +28,13 @@ public class VehicleLogDaoHibernate implements VehicleLogDao {
 		return (VehicleLog)query.uniqueResult();
 	}
 
+	@Override
+	public VehicleLog updateVehicleLog(VehicleLog vehicleLog) throws VehicleLogDaoException {
+		Session session = this.sessionFactory.getCurrentSession();
+		session.save(vehicleLog);
+		return this.getVehicleLog(vehicleLog.getVehicleLogId());
+	}
+
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
