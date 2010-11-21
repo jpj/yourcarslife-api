@@ -5,6 +5,9 @@
 
 package com.solairis.yourcarslife.data.domain;
 
+import java.util.List;
+import java.util.Set;
+
 /**
  *
  * @author josh
@@ -18,6 +21,8 @@ public class User {
 	private String firstName;
 	private String lastName;
 	private boolean enabled;
+
+	private Set<Vehicle> vehicles;
 
 	public String getEmail() {
 		return email;
@@ -73,6 +78,14 @@ public class User {
 
 	public void setUserId(long userId) {
 		this.userId = userId;
+	}
+
+	public Set<Vehicle> getVehicles() {
+		return vehicles;
+	}
+
+	public void setVehicles(Set<Vehicle> vehicles) {
+		this.vehicles = vehicles;
 	}
 
 }
