@@ -11,7 +11,7 @@
 	<property name="lastName"/>
 	<property name="enabled" type="boolean"/>
 
-	<set name="vehicles" inverse="true" table="vehicle" lazy="false">
+	<set name="vehicles" inverse="true" table="vehicle" lazy="false" order-by="name">
 		<key>
 			<column name="userId" not-null="true"/>
 		</key>

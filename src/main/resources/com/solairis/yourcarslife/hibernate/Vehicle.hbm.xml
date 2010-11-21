@@ -8,7 +8,7 @@
 		<property name="name"/>
 		<property name="description"/>
 		<property name="notes"/>
-		<set name="vehicleFuelLogs" inverse="true" table="vehicleFuelLog" lazy="false" order-by="odometer">
+		<set name="vehicleFuelLogs" inverse="true" table="vehicleFuelLog" lazy="false" order-by="odometer" where="active=1">
 			<key>
 				<column name="vehicleId" not-null="true"/>
 			</key>
