@@ -14,6 +14,7 @@ import java.util.Set;
 public class Vehicle {
 
 	private long vehicleId;
+	private User user;
 	private String name;
 	private String description;
 	private String notes;
@@ -58,6 +59,14 @@ public class Vehicle {
 
 	public void setVehicleFuelLogs(Set<VehicleFuelLog> vehicleFuelLogs) {
 		this.vehicleFuelLogs = vehicleFuelLogs;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }
