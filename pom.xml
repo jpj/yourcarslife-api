@@ -27,11 +27,6 @@
 	  <artifactId>hibernate-core</artifactId>
 	  <version>3.3.2.GA</version>
 	 </dependency>
-	 <dependency>
-	  <groupId>org.springframework</groupId>
-	  <artifactId>spring-tx</artifactId>
-	  <version>3.0.5.RELEASE</version>
-	 </dependency>
 	</dependencies>
 	<build>
 		<finalName>yourcarslife_jar</finalName>
