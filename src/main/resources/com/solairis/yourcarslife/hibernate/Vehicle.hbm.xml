@@ -5,7 +5,8 @@
 		<id name="vehicleId">
 			<generator class="native"/>
 		</id>
-		<one-to-one name="user" class="com.solairis.yourcarslife.data.domain.User" lazy="false"/>
+		<many-to-one name="user" class="com.solairis.yourcarslife.data.domain.User" lazy="false" column="userId"/>
+<!--		<one-to-one name="user" class="com.solairis.yourcarslife.data.domain.User" lazy="false"/>-->
 		<property name="name"/>
 		<property name="description"/>
 		<property name="notes"/>

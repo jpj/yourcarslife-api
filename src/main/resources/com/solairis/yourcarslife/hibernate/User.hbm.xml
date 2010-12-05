@@ -11,11 +11,11 @@
 	<property name="lastName"/>
 	<property name="enabled" type="boolean"/>
 
-	<set name="vehicles" inverse="true" table="vehicle" lazy="false" order-by="name">
+<!--	<set name="vehicles" inverse="true" table="vehicle" lazy="false" order-by="name">
 		<key>
 			<column name="userId" not-null="true"/>
 		</key>
 		<one-to-many class="com.solairis.yourcarslife.data.domain.Vehicle"/>
-	</set>
+	</set>-->
   </class>
 </hibernate-mapping>
