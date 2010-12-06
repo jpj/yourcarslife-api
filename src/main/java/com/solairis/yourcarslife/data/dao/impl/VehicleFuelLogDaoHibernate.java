@@ -10,11 +10,12 @@ import com.solairis.yourcarslife.data.exception.VehicleLogDaoException;
 import com.solairis.yourcarslife.data.domain.VehicleFuelLog;
 import com.solairis.yourcarslife.data.input.VehicleFuelLogInputData;
 import java.util.List;
+import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -24,6 +25,7 @@ import org.hibernate.criterion.Restrictions;
 public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 
 	private SessionFactory sessionFactory;
+	private final Logger logger = Logger.getLogger(this.getClass());
 
 	@Override
 	public VehicleFuelLog getVehicleFuelLog(long vehicleFuelLogId) throws VehicleLogDaoException {
@@ -49,14 +51,17 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(VehicleFuelLog.class);
 
 			if (inputData.getVehicleId() > 0) {
+				logger.info("Setting vehicle id");
 				criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
 			}
 			if (inputData.getMaxRecords() > 0) {
-				criteria.setFetchSize(inputData.getMaxRecords());
+				logger.info("Setting max records");
+				criteria.setMaxResults(inputData.getMaxRecords());
 			}
-			if (inputData.getStartRecord() > 0) {
-				criteria.setFirstResult(inputData.getStartRecord());
-			}
+
+			criteria.setFirstResult(inputData.getStartRecord());
+			criteria.addOrder(Order.desc("logDate"));
+
 			vehicleFuelLogs = criteria.list();
 		} catch (HibernateException e) {
 			throw new VehicleLogDaoException(e);
