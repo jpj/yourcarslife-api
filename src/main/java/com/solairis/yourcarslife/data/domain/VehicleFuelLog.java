@@ -13,6 +13,7 @@ import java.util.Date;
 public class VehicleFuelLog {
 
 	private long vehicleFuelLogId;
+	private long vehicleId;
 	private double odometer;
 	private Date created;
 	private Date modified;
@@ -21,20 +22,12 @@ public class VehicleFuelLog {
 	private int octane;
 	private boolean active;
 
-	public long getVehicleFuelLogId() {
-		return vehicleFuelLogId;
+	public boolean isActive() {
+		return active;
 	}
 
-	public void setVehicleFuelLogId(long vehicleFuelLogId) {
-		this.vehicleFuelLogId = vehicleFuelLogId;
-	}
-
-	public double getOdometer() {
-		return odometer;
-	}
-
-	public void setOdometer(double odometer) {
-		this.odometer = odometer;
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	public Date getCreated() {
@@ -43,22 +36,6 @@ public class VehicleFuelLog {
 
 	public void setCreated(Date created) {
 		this.created = created;
-	}
-
-	public Date getModified() {
-		return modified;
-	}
-
-	public void setModified(Date modified) {
-		this.modified = modified;
-	}
-
-	public boolean isActive() {
-		return active;
-	}
-
-	public void setActive(boolean active) {
-		this.active = active;
 	}
 
 	public double getFuel() {
@@ -77,11 +54,43 @@ public class VehicleFuelLog {
 		this.logDate = logDate;
 	}
 
+	public Date getModified() {
+		return modified;
+	}
+
+	public void setModified(Date modified) {
+		this.modified = modified;
+	}
+
 	public int getOctane() {
 		return octane;
 	}
 
 	public void setOctane(int octane) {
 		this.octane = octane;
+	}
+
+	public double getOdometer() {
+		return odometer;
+	}
+
+	public void setOdometer(double odometer) {
+		this.odometer = odometer;
+	}
+
+	public long getVehicleFuelLogId() {
+		return vehicleFuelLogId;
+	}
+
+	public void setVehicleFuelLogId(long vehicleFuelLogId) {
+		this.vehicleFuelLogId = vehicleFuelLogId;
+	}
+
+	public long getVehicleId() {
+		return vehicleId;
+	}
+
+	public void setVehicleId(long vehicleId) {
+		this.vehicleId = vehicleId;
 	}
 }

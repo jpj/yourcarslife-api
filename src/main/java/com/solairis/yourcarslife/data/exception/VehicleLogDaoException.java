@@ -9,7 +9,7 @@ package com.solairis.yourcarslife.data.exception;
  *
  * @author josh
  */
-public class VehicleLogDaoException extends Exception {
+public class VehicleLogDaoException extends DataAccessException {
 
 	public VehicleLogDaoException(String message) {
 		super(message);

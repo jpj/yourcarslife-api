@@ -26,6 +26,19 @@ public class VehicleDaoHibernate implements VehicleDao {
 	private SessionFactory sessionFactory;
 
 	@Override
+	public Vehicle getVehicle(long vehicleId) throws VehicleDaoException {
+		Vehicle vehicle = null;
+		try {
+			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(Vehicle.class);
+			criteria.add(Restrictions.eq("vehicleId", vehicleId));
+			vehicle = (Vehicle)criteria.uniqueResult();
+		} catch (HibernateException e) {
+			throw new VehicleDaoException(e);
+		}
+		return vehicle;
+	}
+
+	@Override
 	public List<Vehicle> getVehicles(VehicleInputData inputData) throws VehicleDaoException {
 		List<Vehicle> vehicles = null;
 

@@ -8,6 +8,8 @@ package com.solairis.yourcarslife.data.dao.impl;
 import com.solairis.yourcarslife.data.dao.VehicleFuelLogDao;
 import com.solairis.yourcarslife.data.exception.VehicleLogDaoException;
 import com.solairis.yourcarslife.data.domain.VehicleFuelLog;
+import com.solairis.yourcarslife.data.input.VehicleFuelLogInputData;
+import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -37,6 +39,30 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 		}
 
 		return vehicleFuelLog;
+	}
+
+	@Override
+	public List<VehicleFuelLog> getVehicleFuelLogs(VehicleFuelLogInputData inputData) throws VehicleLogDaoException {
+		List<VehicleFuelLog> vehicleFuelLogs = null;
+
+		try {
+			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(VehicleFuelLog.class);
+
+			if (inputData.getVehicleId() > 0) {
+				criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
+			}
+			if (inputData.getMaxRecords() > 0) {
+				criteria.setFetchSize(inputData.getMaxRecords());
+			}
+			if (inputData.getStartRecord() > 0) {
+				criteria.setFirstResult(inputData.getStartRecord());
+			}
+			vehicleFuelLogs = criteria.list();
+		} catch (HibernateException e) {
+			throw new VehicleLogDaoException(e);
+		}
+
+		return vehicleFuelLogs;
 	}
 
 	@Override

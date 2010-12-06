@@ -15,4 +15,8 @@ public class UrlUtil {
 		return url.replaceAll("_", " ");
 	}
 
+	public static String convertToUrl(String candidate) {
+		return candidate.replaceAll(" ", "_");
+	}
+
 }
