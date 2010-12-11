@@ -14,7 +14,8 @@ import com.solairis.yourcarslife.data.domain.User;
 public class VehicleInputData {
 
 	private String name;
-	private User user;
+	private long userId;
+	private long vehicleId;
 
 	public String getName() {
 		return name;
@@ -24,12 +25,20 @@ public class VehicleInputData {
 		this.name = name;
 	}
 
-	public User getUser() {
-		return user;
+	public long getUserId() {
+		return userId;
 	}
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
+
+	public long getVehicleId() {
+		return vehicleId;
+	}
+
+	public void setVehicleId(long vehicleId) {
+		this.vehicleId = vehicleId;
 	}
 
 }

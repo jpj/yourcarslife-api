@@ -49,10 +49,11 @@ public class VehicleDaoHibernate implements VehicleDao {
 				if (inputData.getName() != null) {
 					criteria.add(Restrictions.eq("name", inputData.getName()));
 				}
-				if (inputData.getUser() != null) {
-					if (inputData.getUser().getUserId() > 0) {
-						criteria.add(Restrictions.eq("user.userId", inputData.getUser().getUserId()));
-					}
+				if (inputData.getUserId() > 0) {
+					criteria.add(Restrictions.eq("user.userId", inputData.getUserId()));
+				}
+				if (inputData.getVehicleId() > 0) {
+					criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
 				}
 			}
 
