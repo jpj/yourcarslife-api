@@ -60,7 +60,7 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 			}
 
 			criteria.setFirstResult(inputData.getStartRecord());
-			criteria.addOrder(Order.desc("logDate"));
+			criteria.addOrder(Order.desc("odometer"));
 
 			vehicleFuelLogs = criteria.list();
 		} catch (HibernateException e) {
