@@ -16,6 +16,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 /**
@@ -75,6 +77,19 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 		Session session = this.sessionFactory.getCurrentSession();
 		session.save(vehicleLog);
 		return this.getVehicleFuelLog(vehicleLog.getVehicleFuelLogId());
+	}
+
+	@Override
+	public int getVehicleFuelLogCount(VehicleFuelLogInputData inputData) throws VehicleLogDaoException {
+		int count = 0;
+		try {
+			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(VehicleFuelLog.class);
+			criteria.setProjection(Projections.rowCount());
+			count = ((Integer)criteria.uniqueResult()).intValue();
+		} catch (HibernateException e) {
+				throw new VehicleLogDaoException(e);
+		}
+		return count;
 	}
 
 	public void setSessionFactory(SessionFactory sessionFactory) {

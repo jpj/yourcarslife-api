@@ -22,4 +22,6 @@ public interface VehicleFuelLogDao {
 
 	public VehicleFuelLog saveVehicleFuelLog(VehicleFuelLog vehicleLog) throws VehicleLogDaoException;
 
+	public int getVehicleFuelLogCount(VehicleFuelLogInputData inputData) throws VehicleLogDaoException;
+
 }
