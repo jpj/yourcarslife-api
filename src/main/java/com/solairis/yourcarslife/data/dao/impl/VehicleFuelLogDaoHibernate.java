@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.solairis.yourcarslife.data.dao.impl;
 
 import com.solairis.yourcarslife.data.dao.VehicleFuelLogDao;
@@ -37,7 +36,7 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 		try {
 			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(VehicleFuelLog.class);
 			criteria.add(Restrictions.eq("vehicleFuelLogId", vehicleFuelLogId));
-			vehicleFuelLog = (VehicleFuelLog)criteria.uniqueResult();
+			vehicleFuelLog = (VehicleFuelLog) criteria.uniqueResult();
 		} catch (HibernateException e) {
 			throw new VehicleLogDaoException(e);
 		}
@@ -53,11 +52,9 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(VehicleFuelLog.class);
 
 			if (inputData.getVehicleId() > 0) {
-				logger.info("Setting vehicle id");
 				criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
 			}
 			if (inputData.getMaxRecords() > 0) {
-				logger.info("Setting max records");
 				criteria.setMaxResults(inputData.getMaxRecords());
 			}
 
@@ -84,10 +81,13 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 		int count = 0;
 		try {
 			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(VehicleFuelLog.class);
+			if (inputData.getVehicleId() > 0) {
+				criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
+			}
 			criteria.setProjection(Projections.rowCount());
-			count = ((Integer)criteria.uniqueResult()).intValue();
+			count = ((Integer) criteria.uniqueResult()).intValue();
 		} catch (HibernateException e) {
-				throw new VehicleLogDaoException(e);
+			throw new VehicleLogDaoException(e);
 		}
 		return count;
 	}
@@ -95,5 +95,4 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-
 }
