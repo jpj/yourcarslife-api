@@ -12,6 +12,7 @@ package com.solairis.yourcarslife.data.input;
 public class VehicleFuelLogInputData extends PageableInputData {
 
 	private long vehicleId;
+	private long vehicleFuelLogId;
 
 	public long getVehicleId() {
 		return vehicleId;
@@ -19,6 +20,14 @@ public class VehicleFuelLogInputData extends PageableInputData {
 
 	public void setVehicleId(long vehicleId) {
 		this.vehicleId = vehicleId;
+	}
+
+	public long getVehicleFuelLogId() {
+		return vehicleFuelLogId;
+	}
+
+	public void setVehicleFuelLogId(long vehicleFuelLogId) {
+		this.vehicleFuelLogId = vehicleFuelLogId;
 	}
 
 }
