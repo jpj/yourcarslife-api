@@ -51,14 +51,20 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 		try {
 			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(VehicleFuelLog.class);
 
-			if (inputData.getVehicleId() > 0) {
-				criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
-			}
-			if (inputData.getMaxRecords() > 0) {
-				criteria.setMaxResults(inputData.getMaxRecords());
+			if (inputData != null) {
+				if (inputData.getVehicleId() > 0) {
+					criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
+				}
+				if (inputData.getVehicleFuelLogId() > 0) {
+					criteria.add(Restrictions.eq("vehicleFuelLogId", inputData.getVehicleFuelLogId()));
+				}
+				if (inputData.getMaxRecords() > 0) {
+					criteria.setMaxResults(inputData.getMaxRecords());
+				}
+
+				criteria.setFirstResult(inputData.getStartRecord());
 			}
 
-			criteria.setFirstResult(inputData.getStartRecord());
 			criteria.addOrder(Order.desc("odometer"));
 
 			vehicleFuelLogs = criteria.list();
