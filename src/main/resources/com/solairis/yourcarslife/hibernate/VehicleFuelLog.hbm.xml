@@ -7,8 +7,8 @@
     </id>
 	<property name="vehicleId"/>
     <property name="odometer"/>
-    <property name="created" type="timestamp"/>
-    <property name="modified" type="timestamp"/>
+    <property name="created" type="timestamp" update="false"/>
+    <property name="modified" type="timestamp" update="false"/>
     <property name="logDate" type="timestamp"/>
     <property name="fuel"/>
     <property name="octane"/>
