@@ -20,6 +20,7 @@ public class VehicleFuelLog {
 	private Date logDate;
 	private double fuel;
 	private int octane;
+	private boolean missedFillup;
 	private boolean active;
 
 	public boolean isActive() {
@@ -52,6 +53,14 @@ public class VehicleFuelLog {
 
 	public void setLogDate(Date logDate) {
 		this.logDate = logDate;
+	}
+
+	public boolean isMissedFillup() {
+		return missedFillup;
+	}
+
+	public void setMissedFillup(boolean missedFillup) {
+		this.missedFillup = missedFillup;
 	}
 
 	public Date getModified() {

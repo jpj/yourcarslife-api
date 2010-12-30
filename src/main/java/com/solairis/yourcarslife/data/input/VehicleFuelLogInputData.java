@@ -13,6 +13,15 @@ public class VehicleFuelLogInputData extends PageableInputData {
 
 	private long vehicleId;
 	private long vehicleFuelLogId;
+	private boolean active;
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
+	}
 
 	public long getVehicleId() {
 		return vehicleId;

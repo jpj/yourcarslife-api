@@ -12,6 +12,7 @@
     <property name="logDate" type="timestamp"/>
     <property name="fuel"/>
     <property name="octane"/>
+	<property name="missedFillup" type="boolean"/>
     <property name="active" type="boolean"/>
   </class>
 </hibernate-mapping>

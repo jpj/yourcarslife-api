@@ -58,6 +58,7 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 				if (inputData.getVehicleFuelLogId() > 0) {
 					criteria.add(Restrictions.eq("vehicleFuelLogId", inputData.getVehicleFuelLogId()));
 				}
+				criteria.add(Restrictions.eq("active", inputData.isActive()));
 				if (inputData.getMaxRecords() > 0) {
 					criteria.setMaxResults(inputData.getMaxRecords());
 				}
@@ -90,6 +91,7 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 			if (inputData.getVehicleId() > 0) {
 				criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
 			}
+			criteria.add(Restrictions.eq("active", inputData.isActive()));
 			criteria.setProjection(Projections.rowCount());
 			count = ((Integer) criteria.uniqueResult()).intValue();
 		} catch (HibernateException e) {
