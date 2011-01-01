@@ -77,10 +77,12 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 	}
 
 	@Override
-	public VehicleFuelLog saveVehicleFuelLog(VehicleFuelLog vehicleLog) throws VehicleLogDaoException {
-		Session session = this.sessionFactory.getCurrentSession();
-		session.save(vehicleLog);
-		return this.getVehicleFuelLog(vehicleLog.getVehicleFuelLogId());
+	public void saveVehicleFuelLog(VehicleFuelLog vehicleLog) throws VehicleLogDaoException {
+		try {
+			this.sessionFactory.getCurrentSession().saveOrUpdate(vehicleLog);
+		} catch (HibernateException e) {
+			throw new VehicleLogDaoException(e);
+		}
 	}
 
 	@Override

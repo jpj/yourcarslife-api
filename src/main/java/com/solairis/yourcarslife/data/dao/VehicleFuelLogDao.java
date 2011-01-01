@@ -20,7 +20,7 @@ public interface VehicleFuelLogDao {
 
 	public List<VehicleFuelLog> getVehicleFuelLogs(VehicleFuelLogInputData inputData) throws VehicleLogDaoException;
 
-	public VehicleFuelLog saveVehicleFuelLog(VehicleFuelLog vehicleLog) throws VehicleLogDaoException;
+	public void saveVehicleFuelLog(VehicleFuelLog vehicleLog) throws VehicleLogDaoException;
 
 	public int getVehicleFuelLogCount(VehicleFuelLogInputData inputData) throws VehicleLogDaoException;
 
