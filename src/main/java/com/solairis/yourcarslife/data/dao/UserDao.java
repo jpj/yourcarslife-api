@@ -15,5 +15,6 @@ import com.solairis.yourcarslife.data.exception.UserDaoException;
 public interface UserDao {
 
 	public User getUser(long userId) throws UserDaoException;
+	public User getUser(String login) throws UserDaoException;
 
 }
