@@ -7,6 +7,7 @@
     </id>
     <property name="login"/>
     <property name="password"/>
+    <property name="email"/>
     <property name="firstName"/>
     <property name="lastName"/>
     <property name="enabled" type="boolean"/>
