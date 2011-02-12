@@ -50,6 +50,15 @@ public class UserDaoHibernate implements UserDao {
 		return user;
 	}
 
+	@Override
+	public void saveUser(User user) throws UserDaoException {
+		try {
+			this.sessionFactory.getCurrentSession().saveOrUpdate(user);
+		} catch (HibernateException e) {
+			throw new UserDaoException(e);
+		}
+	}
+
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}

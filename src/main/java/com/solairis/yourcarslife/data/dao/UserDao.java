@@ -16,5 +16,6 @@ public interface UserDao {
 
 	public User getUser(long userId) throws UserDaoException;
 	public User getUser(String login) throws UserDaoException;
+	public void saveUser(User user) throws UserDaoException;
 
 }
