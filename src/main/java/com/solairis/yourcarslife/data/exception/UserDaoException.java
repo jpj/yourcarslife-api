@@ -15,7 +15,7 @@ public class UserDaoException extends DaoException {
 		super(message);
 	}
 
-	public UserDaoException(Exception e) {
+	public UserDaoException(Throwable e) {
 		super(e);
 	}
 

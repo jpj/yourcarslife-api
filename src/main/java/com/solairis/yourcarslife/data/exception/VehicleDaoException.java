@@ -15,7 +15,7 @@ public class VehicleDaoException extends DaoException {
 		super(message);
 	}
 
-	public VehicleDaoException(Exception e) {
+	public VehicleDaoException(Throwable e) {
 		super(e);
 	}
 

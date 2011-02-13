@@ -5,14 +5,15 @@
 
 package com.solairis.yourcarslife.data.domain;
 
-import java.util.List;
+import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
  *
  * @author josh
  */
-public class User {
+public class User implements Serializable {
 
 	private long userId;
 	private String login;
@@ -22,7 +23,7 @@ public class User {
 	private String lastName;
 	private boolean enabled;
 
-	private Set<Vehicle> vehicles;
+	private Set<UserRole> userRoles = new HashSet<UserRole>();
 
 	public String getEmail() {
 		return email;
@@ -80,12 +81,12 @@ public class User {
 		this.userId = userId;
 	}
 
-	public Set<Vehicle> getVehicles() {
-		return vehicles;
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
 	}
 
-	public void setVehicles(Set<Vehicle> vehicles) {
-		this.vehicles = vehicles;
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
 	}
 
 }
