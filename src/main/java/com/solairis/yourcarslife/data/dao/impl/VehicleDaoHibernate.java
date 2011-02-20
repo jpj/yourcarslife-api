@@ -65,6 +65,15 @@ public class VehicleDaoHibernate implements VehicleDao {
 		return vehicles;
 	}
 
+	@Override
+	public void saveVehicle(Vehicle vehicle) throws VehicleDaoException {
+		try {
+			this.sessionFactory.getCurrentSession().saveOrUpdate(vehicle);
+		} catch (HibernateException e) {
+			throw new VehicleDaoException(e);
+		}
+	}
+
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}

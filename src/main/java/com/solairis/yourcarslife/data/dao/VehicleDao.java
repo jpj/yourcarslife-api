@@ -18,5 +18,6 @@ public interface VehicleDao {
 
 	public Vehicle getVehicle(long vehicleId) throws VehicleDaoException;
 	public List<Vehicle> getVehicles(VehicleInputData inputData) throws VehicleDaoException;
+	public void saveVehicle(Vehicle vehicle) throws VehicleDaoException;
 
 }
