@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.solairis.yourcarslife.data.domain">
-  <class lazy="false" name="Vehicle" table="vehicle">
-    <id name="vehicleId">
-      <generator class="native"/>
-    </id>
-    <many-to-one class="com.solairis.yourcarslife.data.domain.User" column="userId" lazy="false" name="user"/>
-    <!--		<one-to-one name="user" class="com.solairis.yourcarslife.data.domain.User" lazy="false"/>-->
-    <property name="name"/>
-    <property name="description"/>
-    <property name="notes"/>
-    <set inverse="true" lazy="false" name="vehicleFuelLogs" order-by="odometer" table="vehicleFuelLog" where="active=1">
-      <key>
-        <column name="vehicleId" not-null="true"/>
-      </key>
-      <one-to-many class="com.solairis.yourcarslife.data.domain.VehicleFuelLog"/>
-    </set>
-  </class>
+	<class lazy="false" name="Vehicle" table="vehicle">
+		<id name="vehicleId">
+			<generator class="native"/>
+		</id>
+		<many-to-one column="userId" lazy="false" name="user"/>
+		<property name="name"/>
+		<property name="description"/>
+		<property name="notes"/>
+		<set inverse="true" lazy="true" name="vehicleFuelLogs" order-by="odometer" table="vehicleFuelLog" where="active=1">
+			<key>
+				<column name="vehicleId" not-null="true"/>
+			</key>
+			<one-to-many class="com.solairis.yourcarslife.data.domain.VehicleFuelLog"/>
+		</set>
+	</class>
 </hibernate-mapping>
