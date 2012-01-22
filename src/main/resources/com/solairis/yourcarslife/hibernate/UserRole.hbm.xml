@@ -6,6 +6,6 @@
 			<generator class="native"/>
 		</id>
 		<property name="roleKey"/>
-		<many-to-one name="user" column="userId" not-null="true"/>
+<!--		<many-to-one name="user" column="userId" not-null="true"/>-->
 	</class>
 </hibernate-mapping>
