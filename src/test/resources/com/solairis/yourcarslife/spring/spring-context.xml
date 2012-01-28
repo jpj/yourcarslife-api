@@ -32,8 +32,6 @@
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
 
-<!--	<tx:annotation-driven/>-->
-
 	<bean id="logDao" class="com.solairis.yourcarslife.data.dao.impl.LogDaoHibernate">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
