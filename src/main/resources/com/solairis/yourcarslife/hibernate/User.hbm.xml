@@ -6,14 +6,14 @@
 			<generator class="native"/>
 		</id>
 		<property name="login"/>
-<!--		<property name="password"/>-->
+		<property name="password"/>
 		<property name="email"/>
 		<property name="firstName"/>
 		<property name="lastName"/>
 		<property name="enabled" type="boolean"/>
-<!--		<set name="userRoles" inverse="true" cascade="all" lazy="false">
+		<set name="userRoles" inverse="true" cascade="all">
 			<key column="userId"/>
 			<one-to-many class="UserRole"/>
-		</set>-->
+		</set>
 	</class>
 </hibernate-mapping>
