@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.solairis.yourcarslife.data.domain">
-	<class lazy="false" name="Log">
+	<class lazy="false" name="Log" table="log">
 		<id name="logId">
 			<generator class="native"/>
 		</id>
@@ -11,7 +11,7 @@
 		<property name="modified" update="false"/>
 		<property name="logDate"/>
 		<property name="active"/>
-		<joined-subclass name="LogFuel">
+		<joined-subclass name="LogFuel" table="logFuel">
 			<key column="logId"/>
 			<property name="fuel"/>
 			<property name="octane"/>

@@ -6,6 +6,7 @@ ALTER TABLE log ENGINE=InnoDB;
 
 -- Rename vehicleFuelLogId to logId
 ALTER TABLE log CHANGE vehicleFuelLogId logId INT(10);
+ALTER TABLE log MODIFY logId INT(10) AUTO_INCREMENT;
 
 -- Create extension table for logFuel
 CREATE TABLE logFuel (
