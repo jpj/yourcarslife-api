@@ -12,7 +12,7 @@ import java.util.Date;
  */
 public class Log {
 
-	private long vehicleFuelLogId;
+	private long logId;
 	private long vehicleId;
 	private double odometer;
 	private Date created;
@@ -55,6 +55,14 @@ public class Log {
 		this.logDate = logDate;
 	}
 
+	public long getLogId() {
+		return logId;
+	}
+
+	public void setLogId(long logId) {
+		this.logId = logId;
+	}
+
 	public boolean isMissedFillup() {
 		return missedFillup;
 	}
@@ -85,14 +93,6 @@ public class Log {
 
 	public void setOdometer(double odometer) {
 		this.odometer = odometer;
-	}
-
-	public long getVehicleFuelLogId() {
-		return vehicleFuelLogId;
-	}
-
-	public void setVehicleFuelLogId(long vehicleFuelLogId) {
-		this.vehicleFuelLogId = vehicleFuelLogId;
 	}
 
 	public long getVehicleId() {
