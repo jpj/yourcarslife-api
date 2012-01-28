@@ -6,7 +6,7 @@ package com.solairis.yourcarslife.data.dao.impl;
 
 import com.solairis.yourcarslife.data.dao.VehicleFuelLogDao;
 import com.solairis.yourcarslife.data.exception.VehicleLogDaoException;
-import com.solairis.yourcarslife.data.domain.VehicleFuelLog;
+import com.solairis.yourcarslife.data.domain.Log;
 import com.solairis.yourcarslife.data.input.VehicleFuelLogInputData;
 import java.util.List;
 import org.apache.log4j.Logger;
@@ -29,14 +29,14 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 	private final Logger logger = Logger.getLogger(this.getClass());
 
 	@Override
-	public VehicleFuelLog getVehicleFuelLog(long vehicleFuelLogId) throws VehicleLogDaoException {
+	public Log getVehicleFuelLog(long vehicleFuelLogId) throws VehicleLogDaoException {
 
-		VehicleFuelLog vehicleFuelLog = null;
+		Log vehicleFuelLog = null;
 
 		try {
-			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(VehicleFuelLog.class);
+			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(Log.class);
 			criteria.add(Restrictions.eq("vehicleFuelLogId", vehicleFuelLogId));
-			vehicleFuelLog = (VehicleFuelLog) criteria.uniqueResult();
+			vehicleFuelLog = (Log) criteria.uniqueResult();
 		} catch (HibernateException e) {
 			throw new VehicleLogDaoException(e);
 		}
@@ -45,11 +45,11 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 	}
 
 	@Override
-	public List<VehicleFuelLog> getVehicleFuelLogs(VehicleFuelLogInputData inputData) throws VehicleLogDaoException {
-		List<VehicleFuelLog> vehicleFuelLogs = null;
+	public List<Log> getVehicleFuelLogs(VehicleFuelLogInputData inputData) throws VehicleLogDaoException {
+		List<Log> vehicleFuelLogs = null;
 
 		try {
-			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(VehicleFuelLog.class);
+			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(Log.class);
 
 			if (inputData != null) {
 				if (inputData.getVehicleId() > 0) {
@@ -77,7 +77,7 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 	}
 
 	@Override
-	public void saveVehicleFuelLog(VehicleFuelLog vehicleLog) throws VehicleLogDaoException {
+	public void saveVehicleFuelLog(Log vehicleLog) throws VehicleLogDaoException {
 		try {
 			this.sessionFactory.getCurrentSession().saveOrUpdate(vehicleLog);
 		} catch (HibernateException e) {
@@ -89,7 +89,7 @@ public class VehicleFuelLogDaoHibernate implements VehicleFuelLogDao {
 	public int getVehicleFuelLogCount(VehicleFuelLogInputData inputData) throws VehicleLogDaoException {
 		int count = 0;
 		try {
-			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(VehicleFuelLog.class);
+			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(Log.class);
 			if (inputData.getVehicleId() > 0) {
 				criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
 			}

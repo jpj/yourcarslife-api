@@ -10,7 +10,7 @@ import java.util.Date;
  *
  * @author josh
  */
-public class VehicleFuelLog {
+public class Log {
 
 	private long vehicleFuelLogId;
 	private long vehicleId;

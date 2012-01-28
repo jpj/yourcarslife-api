@@ -6,7 +6,7 @@
 package com.solairis.yourcarslife.data.dao;
 
 import com.solairis.yourcarslife.data.exception.VehicleLogDaoException;
-import com.solairis.yourcarslife.data.domain.VehicleFuelLog;
+import com.solairis.yourcarslife.data.domain.Log;
 import com.solairis.yourcarslife.data.input.VehicleFuelLogInputData;
 import java.util.List;
 
@@ -16,11 +16,11 @@ import java.util.List;
  */
 public interface VehicleFuelLogDao {
 
-	public VehicleFuelLog getVehicleFuelLog(long vehicleLogId) throws VehicleLogDaoException;
+	public Log getVehicleFuelLog(long vehicleLogId) throws VehicleLogDaoException;
 
-	public List<VehicleFuelLog> getVehicleFuelLogs(VehicleFuelLogInputData inputData) throws VehicleLogDaoException;
+	public List<Log> getVehicleFuelLogs(VehicleFuelLogInputData inputData) throws VehicleLogDaoException;
 
-	public void saveVehicleFuelLog(VehicleFuelLog vehicleLog) throws VehicleLogDaoException;
+	public void saveVehicleFuelLog(Log vehicleLog) throws VehicleLogDaoException;
 
 	public int getVehicleFuelLogCount(VehicleFuelLogInputData inputData) throws VehicleLogDaoException;
 

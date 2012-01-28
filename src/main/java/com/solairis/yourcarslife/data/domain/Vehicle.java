@@ -19,7 +19,7 @@ public class Vehicle {
 	private String description;
 	private String notes;
 
-	private Set<VehicleFuelLog> vehicleFuelLogs;
+	private Set<Log> vehicleFuelLogs;
 
 	public String getDescription() {
 		return description;
@@ -53,11 +53,11 @@ public class Vehicle {
 		this.vehicleId = vehicleId;
 	}
 
-	public Set<VehicleFuelLog> getVehicleFuelLogs() {
+	public Set<Log> getVehicleFuelLogs() {
 		return vehicleFuelLogs;
 	}
 
-	public void setVehicleFuelLogs(Set<VehicleFuelLog> vehicleFuelLogs) {
+	public void setVehicleFuelLogs(Set<Log> vehicleFuelLogs) {
 		this.vehicleFuelLogs = vehicleFuelLogs;
 	}
 
