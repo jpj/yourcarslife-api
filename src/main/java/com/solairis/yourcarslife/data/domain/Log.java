@@ -18,9 +18,6 @@ public class Log {
 	private Date created;
 	private Date modified;
 	private Date logDate;
-	private double fuel;
-	private int octane;
-	private boolean missedFillup;
 	private boolean active;
 
 	public boolean isActive() {
@@ -39,14 +36,6 @@ public class Log {
 		this.created = created;
 	}
 
-	public double getFuel() {
-		return fuel;
-	}
-
-	public void setFuel(double fuel) {
-		this.fuel = fuel;
-	}
-
 	public Date getLogDate() {
 		return logDate;
 	}
@@ -63,28 +52,12 @@ public class Log {
 		this.logId = logId;
 	}
 
-	public boolean isMissedFillup() {
-		return missedFillup;
-	}
-
-	public void setMissedFillup(boolean missedFillup) {
-		this.missedFillup = missedFillup;
-	}
-
 	public Date getModified() {
 		return modified;
 	}
 
 	public void setModified(Date modified) {
 		this.modified = modified;
-	}
-
-	public int getOctane() {
-		return octane;
-	}
-
-	public void setOctane(int octane) {
-		this.octane = octane;
 	}
 
 	public double getOdometer() {

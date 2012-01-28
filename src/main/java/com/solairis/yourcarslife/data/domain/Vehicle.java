@@ -19,8 +19,6 @@ public class Vehicle {
 	private String description;
 	private String notes;
 
-	private Set<Log> vehicleFuelLogs;
-
 	public String getDescription() {
 		return description;
 	}
@@ -51,14 +49,6 @@ public class Vehicle {
 
 	public void setVehicleId(long vehicleId) {
 		this.vehicleId = vehicleId;
-	}
-
-	public Set<Log> getVehicleFuelLogs() {
-		return vehicleFuelLogs;
-	}
-
-	public void setVehicleFuelLogs(Set<Log> vehicleFuelLogs) {
-		this.vehicleFuelLogs = vehicleFuelLogs;
 	}
 
 	public User getUser() {
