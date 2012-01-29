@@ -16,7 +16,6 @@ public class UserRole implements Serializable {
 	private long userRoleId;
 	private long userId;
 	private String roleKey;
-	private User user;
 
 	public String getRoleKey() {
 		return roleKey;
@@ -24,14 +23,6 @@ public class UserRole implements Serializable {
 
 	public void setRoleKey(String roleKey) {
 		this.roleKey = roleKey;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
 	}
 
 	public long getUserId() {

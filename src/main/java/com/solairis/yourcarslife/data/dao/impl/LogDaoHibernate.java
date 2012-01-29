@@ -42,7 +42,7 @@ public class LogDaoHibernate implements LogDao {
 
 			if (inputData != null) {
 				if (inputData.getVehicleId() != null) {
-					criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
+					criteria.createCriteria("vehicle").add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
 				}
 				if (inputData.getLogId() != null) {
 					criteria.add(Restrictions.eq("logId", inputData.getLogId()));
@@ -79,7 +79,7 @@ public class LogDaoHibernate implements LogDao {
 		try {
 			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(Log.class);
 			if (inputData.getVehicleId() > 0) {
-				criteria.add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
+				criteria.createCriteria("vehicle").add(Restrictions.eq("vehicleId", inputData.getVehicleId()));
 			}
 			if (inputData.getActive() != null) {
 				criteria.add(Restrictions.eq("active", inputData.getActive()));

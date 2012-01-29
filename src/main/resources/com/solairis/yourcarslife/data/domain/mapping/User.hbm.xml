@@ -11,7 +11,7 @@
 		<property name="firstName"/>
 		<property name="lastName"/>
 		<property name="enabled" type="boolean"/>
-		<set name="userRoles" inverse="true" cascade="all">
+		<set name="userRoles" inverse="true" cascade="all" lazy="false">
 			<key column="userId"/>
 			<one-to-many class="UserRole"/>
 		</set>

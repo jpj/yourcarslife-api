@@ -13,7 +13,7 @@ import java.util.Date;
 public class Log {
 
 	private long logId;
-	private long vehicleId;
+	private Vehicle vehicle;
 	private double odometer;
 	private Date created;
 	private Date modified;
@@ -68,11 +68,11 @@ public class Log {
 		this.odometer = odometer;
 	}
 
-	public long getVehicleId() {
-		return vehicleId;
+	public Vehicle getVehicle() {
+		return vehicle;
 	}
 
-	public void setVehicleId(long vehicleId) {
-		this.vehicleId = vehicleId;
+	public void setVehicle(Vehicle vehicle) {
+		this.vehicle = vehicle;
 	}
 }

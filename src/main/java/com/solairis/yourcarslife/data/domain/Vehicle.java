@@ -5,8 +5,6 @@
 
 package com.solairis.yourcarslife.data.domain;
 
-import java.util.Set;
-
 /**
  *
  * @author josh

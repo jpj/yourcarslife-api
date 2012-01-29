@@ -31,7 +31,6 @@ public class UserService {
 		this.userDao.saveUser(user);
 		UserRole userRole = new UserRole();
 		userRole.setRoleKey(YCLConstants.ROLE_USER);
-		userRole.setUser(user);
 		user.getUserRoles().add(userRole);
 	}
 
