@@ -37,10 +37,10 @@ public class LogDaoHibernate implements LogDao {
 	}
 
 	@Override
-	public List<Log> getLogs(LogInputData inputData) throws LogDaoException {
+	public List<? extends Log> getLogs(LogInputData inputData) throws LogDaoException {
 		try {
 			Criteria criteria;
-			
+
 			if (inputData != null && inputData.getLogType() != null) {
 				criteria = this.sessionFactory.getCurrentSession().createCriteria(inputData.getLogType());
 			} else {

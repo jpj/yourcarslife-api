@@ -18,7 +18,7 @@ public interface LogDao {
 
 	public Log getLog(long logId) throws LogDaoException;
 
-	public List<Log> getLogs(LogInputData inputData) throws LogDaoException;
+	public List<? extends Log> getLogs(LogInputData inputData) throws LogDaoException;
 
 	public void save(Log vehicleLog) throws LogDaoException;
 

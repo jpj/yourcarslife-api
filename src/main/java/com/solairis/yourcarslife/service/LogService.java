@@ -2,7 +2,6 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.solairis.yourcarslife.service;
 
 import com.solairis.yourcarslife.data.dao.LogDao;
@@ -34,18 +33,18 @@ public class LogService {
 		inputData.setStartRecord(maxResults * (pageNumber - 1));
 		inputData.setActive(true);
 
-		return this.logDao.getLogs(inputData);
+		return (List<Log>)this.logDao.getLogs(inputData);
 	}
 
 	public int getLogCountByVehicle(long vehicleId) {
 		LogInputData inputData = new LogInputData();
 		inputData.setVehicleId(vehicleId);
 		inputData.setActive(true);
-		
+
 		return this.logDao.getLogCount(inputData);
 	}
 
-	public List<Log> getFuelLogsForVehicle(long vehicleId, int pageNumber, int maxResults) {
+	public List<LogFuel> getFuelLogsForVehicle(long vehicleId, int pageNumber, int maxResults) {
 		LogInputData inputData = new LogInputData();
 		inputData.setVehicleId(vehicleId);
 		inputData.setMaxRecords(maxResults);
@@ -53,7 +52,7 @@ public class LogService {
 		inputData.setActive(true);
 		inputData.setLogType(LogFuel.class);
 
-		return this.logDao.getLogs(inputData);
+		return (List<LogFuel>)this.logDao.getLogs(inputData);
 	}
 
 	public int getFuelLogCountByVehicle(long vehicleId) {
@@ -61,12 +60,11 @@ public class LogService {
 		inputData.setVehicleId(vehicleId);
 		inputData.setActive(true);
 		inputData.setLogType(LogFuel.class);
-		
+
 		return this.logDao.getLogCount(inputData);
 	}
 
 	public void setLogDao(LogDao logDao) {
 		this.logDao = logDao;
 	}
-
 }
