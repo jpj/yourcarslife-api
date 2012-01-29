@@ -7,6 +7,7 @@ package com.solairis.yourcarslife.data.dao.impl;
 import com.solairis.yourcarslife.data.dao.LogDao;
 import com.solairis.yourcarslife.data.exception.LogDaoException;
 import com.solairis.yourcarslife.data.domain.Log;
+import com.solairis.yourcarslife.data.domain.LogFuel;
 import com.solairis.yourcarslife.data.input.LogInputData;
 import java.util.List;
 import org.hibernate.Criteria;
@@ -38,7 +39,13 @@ public class LogDaoHibernate implements LogDao {
 	@Override
 	public List<Log> getLogs(LogInputData inputData) throws LogDaoException {
 		try {
-			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(Log.class);
+			Criteria criteria;
+			
+			if (inputData != null && inputData.getLogType() != null) {
+				criteria = this.sessionFactory.getCurrentSession().createCriteria(inputData.getLogType());
+			} else {
+				criteria = this.sessionFactory.getCurrentSession().createCriteria(Log.class);
+			}
 
 			if (inputData != null) {
 				if (inputData.getVehicleId() != null) {
