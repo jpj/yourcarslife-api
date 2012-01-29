@@ -24,17 +24,14 @@ public class UserDaoHibernate implements UserDao {
 
 	@Override
 	public User getUser(long userId) throws UserDaoException {
-		User user = null;
-
 		try {
-			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(User.class);
-			criteria.add(Restrictions.eq("userId", userId));
-			user = (User)criteria.uniqueResult();
+                        return (User)this.sessionFactory.getCurrentSession().load(User.class, userId);
+//			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(User.class);
+//			criteria.add(Restrictions.eq("userId", userId));
+//			user = (User)criteria.uniqueResult();
 		} catch (HibernateException e) {
 			throw new UserDaoException(e);
 		}
-
-		return user;
 	}
 
 	@Override

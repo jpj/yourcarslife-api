@@ -22,7 +22,7 @@
 		<property name="dataSource" ref="dataSource"/>
 		<property name="mappingLocations">
 			<list>
-				<value>com/solairis/yourcarslife/data/domain/mapping/*.hbm.xml</value>
+				<value>classpath:com/solairis/yourcarslife/data/domain/mapping/*.hbm.xml</value>
 			</list>
 		</property>
 		<property name="hibernateProperties" value="hibernate.dialect=org.hibernate.dialect.MySQL5Dialect"/>
@@ -39,7 +39,7 @@
 	<bean id="userDao" class="com.solairis.yourcarslife.data.dao.impl.UserDaoHibernate">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
-	
+
 	<bean id="vehicleDao" class="com.solairis.yourcarslife.data.dao.impl.VehicleDaoHibernate">
 		<property name="sessionFactory" ref="sessionFactory"/>
 	</bean>
