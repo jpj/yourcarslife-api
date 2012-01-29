@@ -5,6 +5,8 @@
 
 package com.solairis.yourcarslife.data.input;
 
+import com.solairis.yourcarslife.data.domain.Log;
+
 /**
  *
  * @author josh
@@ -14,6 +16,15 @@ public class LogInputData extends PageableInputData {
 	private Long vehicleId;
 	private Long logId;
 	private Boolean active;
+	private Class<? extends Log> logType;
+
+	public Class<? extends Log> getLogType() {
+		return logType;
+	}
+
+	public void setLogType(Class<? extends Log> logType) {
+		this.logType = logType;
+	}
 
 	public Boolean getActive() {
 		return active;
