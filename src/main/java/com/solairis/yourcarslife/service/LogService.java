@@ -22,6 +22,10 @@ public class LogService {
 		return this.logDao.getLog(logId);
 	}
 
+	public LogFuel getFuelLog(long logId) {
+		return (LogFuel)this.logDao.getLog(logId);
+	}
+
 	public void save(Log log) {
 		this.logDao.save(log);
 	}
