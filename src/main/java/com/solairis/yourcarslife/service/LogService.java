@@ -7,6 +7,7 @@ package com.solairis.yourcarslife.service;
 import com.solairis.yourcarslife.data.dao.LogDao;
 import com.solairis.yourcarslife.data.domain.Log;
 import com.solairis.yourcarslife.data.domain.LogFuel;
+import com.solairis.yourcarslife.data.domain.MaintenanceLog;
 import com.solairis.yourcarslife.data.input.LogInputData;
 import java.util.List;
 
@@ -24,6 +25,10 @@ public class LogService {
 
 	public LogFuel getFuelLog(long logId) {
 		return (LogFuel)this.logDao.getLog(logId);
+	}
+
+	public MaintenanceLog getMaintenanceLog(long logId) {
+		return (MaintenanceLog)this.logDao.getLog(logId);
 	}
 
 	public void save(Log log) {
@@ -66,6 +71,34 @@ public class LogService {
 		inputData.setLogType(LogFuel.class);
 
 		return this.logDao.getLogCount(inputData);
+	}
+
+	public List<MaintenanceLog> getMaintenanceLogsForVehicle(long vehicleId, int pageNumber, int maxResults) {
+		LogInputData inputData = new LogInputData();
+		inputData.setVehicleId(vehicleId);
+		inputData.setMaxRecords(maxResults);
+		inputData.setStartRecord(maxResults * (pageNumber - 1));
+		inputData.setActive(Boolean.TRUE);
+		inputData.setLogType(MaintenanceLog.class);
+		return (List<MaintenanceLog>)this.logDao.getLogs(inputData);
+	}
+
+	public int getMaintenanceLogCountForVehicle(long vehicleId) {
+		LogInputData inputData = new LogInputData();
+		inputData.setVehicleId(vehicleId);
+		inputData.setActive(Boolean.TRUE);
+		inputData.setLogType(MaintenanceLog.class);
+		return this.logDao.getLogCount(inputData);
+	}
+
+	public Log getMostRecentLogForVehicle(long vehicleId) {
+		LogInputData inputData = new LogInputData();
+		inputData.setVehicleId(vehicleId);
+		inputData.setActive(Boolean.TRUE);
+		inputData.setMaxRecords(1);
+
+		List<Log> logs = (List<Log>)this.logDao.getLogs(inputData);
+		return logs.isEmpty() ? null : logs.get(0);
 	}
 
 	public void setLogDao(LogDao logDao) {

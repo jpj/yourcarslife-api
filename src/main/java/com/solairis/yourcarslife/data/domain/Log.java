@@ -15,10 +15,19 @@ public class Log {
 	private long logId;
 	private Vehicle vehicle;
 	private double odometer;
+	private Long cost;
 	private Date created;
 	private Date modified;
 	private Date logDate;
 	private boolean active;
+
+	public Long getCost() {
+		return cost;
+	}
+
+	public void setCost(Long cost) {
+		this.cost = cost;
+	}
 
 	public boolean isActive() {
 		return active;
