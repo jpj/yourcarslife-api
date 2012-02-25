@@ -7,6 +7,7 @@ package com.solairis.yourcarslife.data.dao.impl;
 import com.solairis.yourcarslife.data.dao.TagDao;
 import com.solairis.yourcarslife.data.domain.Tag;
 import com.solairis.yourcarslife.data.input.TagInputData;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 import org.hibernate.Criteria;
@@ -34,7 +35,7 @@ public class TagDaoHibernate implements TagDao {
 				criteria.createCriteria("user").add(Restrictions.eq("userId", inputData.getUserId()));
 			}
 		}
-		return new TreeSet<Tag>(criteria.list());
+		return new HashSet<Tag>(criteria.list());
 	}
 
 	@Override
