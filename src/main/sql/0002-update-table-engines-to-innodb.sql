@@ -1,0 +1,3 @@
+ALTER TABLE user ENGINE=InnoDB;
+ALTER TABLE userrole ENGINE=InnoDB;
+ALTER TABLE vehicle ENGINE=InnoDB;
