@@ -5,6 +5,7 @@
 package com.solairis.yourcarslife.data.domain;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  *
@@ -20,6 +21,7 @@ public class Log {
 	private Date modified;
 	private Date logDate;
 	private boolean active;
+	private Set<Tag> tags;
 
 	public Long getCost() {
 		return cost;
@@ -83,5 +85,13 @@ public class Log {
 
 	public void setVehicle(Vehicle vehicle) {
 		this.vehicle = vehicle;
+	}
+
+	public Set<Tag> getTags() {
+		return tags;
+	}
+
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
 	}
 }

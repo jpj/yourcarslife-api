@@ -11,6 +11,10 @@
 		<property name="modified" update="false"/>
 		<property name="logDate"/>
 		<property name="active"/>
+		<set name="tags" table="tagLog" lazy="false" cascade="all">
+			<key column="logId"/>
+			<many-to-many column="tagId" class="Tag"/>
+		</set>
 		<joined-subclass name="LogFuel" table="logFuel">
 			<key column="logId"/>
 			<property name="fuel"/>
