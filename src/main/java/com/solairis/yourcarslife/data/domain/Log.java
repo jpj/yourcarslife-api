@@ -5,6 +5,7 @@
 package com.solairis.yourcarslife.data.domain;
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -21,7 +22,7 @@ public class Log {
 	private Date modified;
 	private Date logDate;
 	private boolean active;
-	private Set<Tag> tags;
+	private Set<Tag> tags = new HashSet<Tag>();
 
 	public Long getCost() {
 		return cost;
