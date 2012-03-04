@@ -8,7 +8,7 @@ package com.solairis.yourcarslife.data.domain;
  *
  * @author Josh J
  */
-public class MaintenanceLog extends Log {
+public class ServiceLog extends Log {
 
 	private String summary;
 	private String description;

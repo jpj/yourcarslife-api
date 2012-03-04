@@ -21,7 +21,7 @@
 			<property name="octane"/>
 			<property name="missedFillup"/>
 		</joined-subclass>
-		<joined-subclass name="MaintenanceLog" table="logMaintenance">
+		<joined-subclass name="ServiceLog" table="logService">
 			<key column="logId"/>
 			<property name="summary"/>
 			<property name="description"/>
