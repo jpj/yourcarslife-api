@@ -6,7 +6,7 @@ package com.solairis.yourcarslife.service;
 
 import com.solairis.yourcarslife.data.dao.LogDao;
 import com.solairis.yourcarslife.data.domain.Log;
-import com.solairis.yourcarslife.data.domain.LogFuel;
+import com.solairis.yourcarslife.data.domain.FuelLog;
 import com.solairis.yourcarslife.data.domain.ServiceLog;
 import com.solairis.yourcarslife.data.input.LogInputData;
 import java.util.List;
@@ -23,8 +23,8 @@ public class LogService {
 		return this.logDao.getLog(logId);
 	}
 
-	public LogFuel getFuelLog(long logId) {
-		return (LogFuel)this.logDao.getLog(logId);
+	public FuelLog getFuelLog(long logId) {
+		return (FuelLog)this.logDao.getLog(logId);
 	}
 
 	public ServiceLog getServiceLog(long logId) {
@@ -53,22 +53,22 @@ public class LogService {
 		return this.logDao.getLogCount(inputData);
 	}
 
-	public List<LogFuel> getFuelLogsForVehicle(long vehicleId, int pageNumber, int maxResults) {
+	public List<FuelLog> getFuelLogsForVehicle(long vehicleId, int pageNumber, int maxResults) {
 		LogInputData inputData = new LogInputData();
 		inputData.setVehicleId(vehicleId);
 		inputData.setMaxRecords(maxResults);
 		inputData.setStartRecord(maxResults * (pageNumber - 1));
 		inputData.setActive(true);
-		inputData.setLogType(LogFuel.class);
+		inputData.setLogType(FuelLog.class);
 
-		return (List<LogFuel>)this.logDao.getLogs(inputData);
+		return (List<FuelLog>)this.logDao.getLogs(inputData);
 	}
 
 	public int getFuelLogCountByVehicle(long vehicleId) {
 		LogInputData inputData = new LogInputData();
 		inputData.setVehicleId(vehicleId);
 		inputData.setActive(true);
-		inputData.setLogType(LogFuel.class);
+		inputData.setLogType(FuelLog.class);
 
 		return this.logDao.getLogCount(inputData);
 	}

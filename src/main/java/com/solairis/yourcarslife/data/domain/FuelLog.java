@@ -8,8 +8,8 @@ package com.solairis.yourcarslife.data.domain;
  *
  * @author josh
  */
-public class LogFuel extends Log {
-	
+public class FuelLog extends Log {
+
 	private double fuel;
 	private int octane;
 	private boolean missedFillup;
@@ -37,5 +37,5 @@ public class LogFuel extends Log {
 	public void setOctane(int octane) {
 		this.octane = octane;
 	}
-	
+
 }

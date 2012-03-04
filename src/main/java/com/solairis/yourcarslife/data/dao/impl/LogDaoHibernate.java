@@ -7,7 +7,7 @@ package com.solairis.yourcarslife.data.dao.impl;
 import com.solairis.yourcarslife.data.dao.LogDao;
 import com.solairis.yourcarslife.data.exception.LogDaoException;
 import com.solairis.yourcarslife.data.domain.Log;
-import com.solairis.yourcarslife.data.domain.LogFuel;
+import com.solairis.yourcarslife.data.domain.FuelLog;
 import com.solairis.yourcarslife.data.input.LogInputData;
 import java.util.List;
 import org.hibernate.Criteria;
