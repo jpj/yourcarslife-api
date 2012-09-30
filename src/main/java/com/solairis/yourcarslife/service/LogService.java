@@ -38,8 +38,8 @@ public class LogService {
 	public List<Log> getLogsForVehicle(long vehicleId, int pageNumber, int maxResults) {
 		LogInputData inputData = new LogInputData();
 		inputData.setVehicleId(vehicleId);
-		inputData.setMaxRecords(maxResults);
-		inputData.setStartRecord(maxResults * (pageNumber - 1));
+		inputData.setNumResults(maxResults);
+		inputData.setOffset(maxResults * (pageNumber - 1));
 		inputData.setActive(true);
 
 		return (List<Log>)this.logDao.getLogs(inputData);
@@ -53,11 +53,11 @@ public class LogService {
 		return this.logDao.getLogCount(inputData);
 	}
 
-	public List<FuelLog> getFuelLogsForVehicle(long vehicleId, int pageNumber, int maxResults) {
+	public List<FuelLog> getFuelLogsForVehicle(long vehicleId, int offset, int maxResults) {
 		LogInputData inputData = new LogInputData();
 		inputData.setVehicleId(vehicleId);
-		inputData.setMaxRecords(maxResults);
-		inputData.setStartRecord(maxResults * (pageNumber - 1));
+		inputData.setNumResults(maxResults);
+		inputData.setOffset(offset);
 		inputData.setActive(true);
 		inputData.setLogType(FuelLog.class);
 
@@ -76,8 +76,8 @@ public class LogService {
 	public List<ServiceLog> getServiceLogsForVehicle(long vehicleId, int pageNumber, int maxResults) {
 		LogInputData inputData = new LogInputData();
 		inputData.setVehicleId(vehicleId);
-		inputData.setMaxRecords(maxResults);
-		inputData.setStartRecord(maxResults * (pageNumber - 1));
+		inputData.setNumResults(maxResults);
+		inputData.setOffset(maxResults * (pageNumber - 1));
 		inputData.setActive(Boolean.TRUE);
 		inputData.setLogType(ServiceLog.class);
 		return (List<ServiceLog>)this.logDao.getLogs(inputData);
@@ -95,7 +95,7 @@ public class LogService {
 		LogInputData inputData = new LogInputData();
 		inputData.setVehicleId(vehicleId);
 		inputData.setActive(Boolean.TRUE);
-		inputData.setMaxRecords(1);
+		inputData.setNumResults(1);
 
 		List<Log> logs = (List<Log>)this.logDao.getLogs(inputData);
 		return logs.isEmpty() ? null : logs.get(0);
