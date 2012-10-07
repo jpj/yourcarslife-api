@@ -72,6 +72,15 @@ public class VehicleDaoHibernate implements VehicleDao {
 		}
 	}
 
+	@Override
+	public void delete(Vehicle vehicle) throws VehicleDaoException {
+		try {
+			this.sessionFactory.getCurrentSession().delete(vehicle);
+		} catch (HibernateException e) {
+			throw new VehicleDaoException(e);
+		}
+	}
+
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}

@@ -33,6 +33,10 @@ public class VehicleService {
 		this.vehicleDao.saveVehicle(vehicle);
 	}
 
+	public void deleteVehicle(Vehicle vehicle) {
+		this.vehicleDao.delete(vehicle);
+	}
+
 	public void setVehicleDao(VehicleDao vehicleDao) {
 		this.vehicleDao = vehicleDao;
 	}
