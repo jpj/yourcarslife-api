@@ -11,23 +11,23 @@ package com.solairis.yourcarslife.data.input;
  */
 public class PageableInputData {
 
-	private int maxRecords;
-	private int startRecord;
+	private int numResults;
+	private int offset;
 
-	public int getMaxRecords() {
-		return maxRecords;
+	public int getNumResults() {
+		return numResults;
 	}
 
-	public void setMaxRecords(int resultsPerPage) {
-		this.maxRecords = resultsPerPage;
+	public void setNumResults(int numResults) {
+		this.numResults = numResults;
 	}
 
-	public int getStartRecord() {
-		return startRecord;
+	public int getOffset() {
+		return offset;
 	}
 
-	public void setStartRecord(int startRecord) {
-		this.startRecord = startRecord;
+	public void setOffset(int offset) {
+		this.offset = offset;
 	}
 
 }

@@ -57,11 +57,11 @@ public class LogDaoHibernate implements LogDao {
 				if (inputData.getActive() != null) {
 					criteria.add(Restrictions.eq("active", inputData.getActive()));
 				}
-				if (inputData.getMaxRecords() > 0) {
-					criteria.setMaxResults(inputData.getMaxRecords());
+				if (inputData.getNumResults() > 0) {
+					criteria.setMaxResults(inputData.getNumResults());
 				}
 
-				criteria.setFirstResult(inputData.getStartRecord());
+				criteria.setFirstResult(inputData.getOffset());
 			}
 
 			criteria.addOrder(Order.desc("odometer"));
