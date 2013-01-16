@@ -9,7 +9,37 @@
 	<packaging>jar</packaging>
 
 	<name>Your Car's Life API</name>
-	<url>http://maven.apache.org</url>
+	<url>http://yourcarslife.com</url>
+
+	<developers>
+		<developer>
+			<name>Joshua P Johnson</name>
+			<email>joshpauljohnson@gmail.com</email>
+			<organization>Solairis</organization>
+			<organizationUrl>http://solairis.com</organizationUrl>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:ssh://git@github.com/jpj/yourcarslife-api.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/jpj/yourcarslife-api.git</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>solairis-local-releases</id>
+			<url>http://nexus.solairis.com/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>solairis-local-snapshots</id>
+			<name>Solairis Snapshots</name>
+			<url>http://nexus.solairis.com/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
