@@ -65,6 +65,7 @@ public class LogDaoHibernate implements LogDao {
 			}
 
 			criteria.addOrder(Order.desc("odometer"));
+			criteria.addOrder(Order.desc("logDate"));
 
 			return criteria.list();
 		} catch (HibernateException e) {

@@ -1,15 +1,44 @@
 
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.solairis.yourcarslife</groupId>
 	<artifactId>yourcarslife-api</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.2-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>Your Car's Life API</name>
-	<url>http://maven.apache.org</url>
+	<url>http://yourcarslife.com</url>
+
+	<developers>
+		<developer>
+			<name>Joshua P Johnson</name>
+			<email>joshpauljohnson@gmail.com</email>
+			<organization>Solairis</organization>
+			<organizationUrl>http://solairis.com</organizationUrl>
+			<timezone>-5</timezone>
+			<roles>
+				<role>Developer</role>
+			</roles>
+		</developer>
+	</developers>
+
+	<scm>
+		<connection>scm:git:ssh://git@github.com/jpj/yourcarslife-api.git</connection>
+		<developerConnection>scm:git:ssh://git@github.com/jpj/yourcarslife-api.git</developerConnection>
+	</scm>
+
+	<distributionManagement>
+		<repository>
+			<id>solairis-local-releases</id>
+			<url>http://solairis.com/nexus/content/repositories/releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>solairis-local-snapshots</id>
+			<name>Solairis Snapshots</name>
+			<url>http://solairis.com/nexus/content/repositories/snapshots</url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -108,15 +137,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<distributionManagement>
-		<repository>
-			<id>solairis-local-releases</id>
-			<url>http://50.56.207.46:8182/nexus/content/repositories/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>solairis-local-snapshots</id>
-			<name>Solairis Snapshots</name>
-			<url>http://50.56.207.46:8182/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
 </project>
